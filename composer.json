@@ -9,5 +9,8 @@
     "autoload": {
         "psr-4": {"Vht\\": ""}
     },
-    "require": {}
+    "require": {
+        "psr/http-message": "^1.0",
+        "jenssegers/blade": "^1.2"
+    }
 }

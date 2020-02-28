@@ -134,7 +134,7 @@ function update($data = array()){
 }
 	function num_rows(){//die('ok9');
 	return $this->result->num_rows;
-	}
+}
 	 function num_fields($query_id='') {//die('ok10');
 	 return $this->result->field_count;
 	}
@@ -247,7 +247,34 @@ function update($data = array()){
 		#$str = addslashes($str);
 		return $str;
 	}
-	function prepare(){
-		
+	function prepare_sql($sql=''){
+		if(!empty($sql)){
+			$this->sql = str_replace('#_', $this->prefix, $sql);
+		}
+		return $this;
+
+	}
+	function bind($params){
+		if(!empty($this->sql)){
+			if ($stmt = $this->db->prepare($this->sql)) {
+
+				/* bind parameters for markers */
+				$stmt->bind_param("s", $city);
+
+				/* execute query */
+				$stmt->execute();
+
+				/* bind result variables */
+				$stmt->bind_result($district);
+
+				/* fetch value */
+				$stmt->fetch();
+
+				printf("%s is in district %s\n", $city, $district);
+
+				/* close statement */
+				$stmt->close();
+			}
+		}
 	}
 }
