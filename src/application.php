@@ -6,15 +6,25 @@ use Vht\Src\Http\Response as Response;
 use Vht\Src\Http\ServerRequest as ServerRequest;
 use Jenssegers\Blade\Blade;
 class Application{
+
 	protected $config;
+
 	protected $database;
+
 	protected $app;
+
 	protected $route;
+
 	protected $template;
+
 	protected $module;
+
 	protected $request;
+
 	protected $response;
+
 	protected $session;
+	
 	public function __construct(){
 		$this->app = array();
 		// $this->template = new Blade('views','cache');
@@ -59,6 +69,8 @@ class Application{
 			$request_uri = explode('/', $this->request->getRequestTarget());
 			$this->module = $request_uri[1];
 		}
+		include $this->app[$this->module]['dir']."/config.php";
+		$this->database = new Database($config['database']);
 		include $this->app[$this->module]['dir']."/index.php";
 		// $this->config = $config;
 		// $this->database = new Database($this->config['database']);

@@ -31,14 +31,7 @@ function connect(){
 		die('Connect Error (' . $this->db->connect_errno . ') '
 			. $this->db->connect_error);
 	}
-
-	if (!$this->db->set_charset("utf8")) {
-		printf("Error loading character set utf8: %s\n", $this->db->error);
-		exit();
-	} else {
-		printf("Current character set: %s\n", $this->db->character_set_name());
-	}
-
+	$this->db->set_charset("utf8");
 }
 function query($sql=""){
 	if(!empty($sql)){

@@ -1,0 +1,1 @@
+footer<?php /**PATH E:\www\dashboard\application\blocks\templates/layout/footer.blade.php ENDPATH**/ ?>
