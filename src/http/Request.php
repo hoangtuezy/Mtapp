@@ -35,7 +35,9 @@ class Request implements RequestInterface{
         foreach($svreq as $key => $item){
             $this->$key = $item;
         }
-
+        $this->query_string =  $this->_server['QUERY_STRING'];
+        $this->request_uri =  $this->_server['REQUEST_URI'];
+        $this->request_method =  $this->_server['REQUEST_METHOD'];
     }
 	 /**
      * Retrieve server parameters.
@@ -98,7 +100,7 @@ class Request implements RequestInterface{
      * @return array
      */
     public function getQueryParams(){
-
+       
     }
 
     /**
@@ -296,7 +298,7 @@ class Request implements RequestInterface{
      * @return string
      */
     public function getRequestTarget(){
-       $this->request_uri =  $this->_server['REQUEST_URI'];
+       
         // if(strpos($this->request_uri,'/')==0){
         //     $this->request_uri = substr($this->request_uri, 1);
         // }
@@ -331,7 +333,7 @@ class Request implements RequestInterface{
      * @return string Returns the request method.
      */
     public function getMethod(){
-        $this->request_method =  $this->_server['REQUEST_METHOD'];
+        
         return $this->request_method;
     }
 

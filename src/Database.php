@@ -15,15 +15,18 @@ class Database{
 	var $order = "";
 	var $limit = "";	
 	var $error = array();
-	function __construct($config = array()){
-		if(!empty($config)){
-			$this->init($config);
-			$this->connect();
-		}
+	function __construct(){
+		
 	}
 	function init($config = array()){//die('ok2');
 	foreach($config as $k=>$v)
 		$this->$k = $v;
+}
+
+
+public function set_database(array $data){
+    $this->init($data);
+   
 }
 function connect(){
 	$this->db = new \mysqli($this->servername, $this->username, $this->password,$this->database);

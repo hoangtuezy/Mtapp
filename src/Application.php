@@ -1,10 +1,8 @@
 <?php
 namespace Vht\Src;
-use Vht\Src\Http as Http;
-use Vht\Src\Http\Request as Request;
-use Vht\Src\Http\Response as Response;
-use Vht\Src\Http\ServerRequest as ServerRequest;
+use Illuminate\Support\Facades\Response;
 use Jenssegers\Blade\Blade;
+use Vht\Src\Http\Request;
 class Application{
 
 	protected $config;
@@ -25,6 +23,9 @@ class Application{
 
 	protected $session;
 	
+	protected $model = array();
+	
+	protected $view;
 	public function __construct(){
 		$this->app = array();
 		// $this->template = new Blade('views','cache');
@@ -38,6 +39,10 @@ class Application{
 	public function response() : Response{
 		return $this->response;
 	}
+	
+	public function session() {
+	    return $this->session;
+	}
 	public function init($config){
 		$this->config = $config;
 		$this->request = new Request([
@@ -46,6 +51,11 @@ class Application{
 			'_request'=>$_REQUEST,
 			'_server'=>$_SERVER]
 		);
+		if(empty(session_id())){
+		    $this->session = array();
+		}else{
+		    $this->session = $_SESSION;
+		}
 
 	}
 	public function register($apps){
@@ -62,6 +72,12 @@ class Application{
 		echo "<pre>";
 		if($exit)exit();
 	}
+	public function set_database($data){
+	    if(empty($this->database)){
+	        $this->database = new Database();
+	    }
+	    $this->database->set_database($data);
+	}
 	public function handle(){
 		if(in_array($this->request->getRequestTarget(), $this->app['name'])){
 			$this->module = $this->request->getRequestTarget();
@@ -69,8 +85,8 @@ class Application{
 			$request_uri = explode('/', $this->request->getRequestTarget());
 			$this->module = $request_uri[1];
 		}
-		include $this->app[$this->module]['dir']."/config.php";
-		$this->database = new Database($config['database']);
+		
+		
 		include $this->app[$this->module]['dir']."/index.php";
 		// $this->config = $config;
 		// $this->database = new Database($this->config['database']);
@@ -80,5 +96,14 @@ class Application{
 		// $this->database->query("select * from #_product limit 8");
 		// $result = $this->database->fetch_array();
 		// var_dump($result);
+	}
+	
+	public function run($before = [],$after = []){
+	    if(!empty($before)){
+	        foreach ($before as $key => $item){
+	            (new $item())->process($this);
+	        }
+	    }
+	    
 	}
 }

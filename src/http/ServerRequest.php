@@ -1,6 +1,7 @@
 <?php
 namespace Vht\Src\Http;
-use Psr\Http\Message;
+use Vht\Src\Http\Request;
+use Psr\Http\Message\StreamInterface;
 /**
  * Representation of an outgoing, server-side response.
  *
@@ -16,7 +17,7 @@ use Psr\Http\Message;
  * be implemented such that they retain the internal state of the current
  * message and return an instance that contains the changed state.
  */
-class ServerRequest implements Request{
+class ServerRequest extends Request{
 	/**
      * Retrieve server parameters.
      *
