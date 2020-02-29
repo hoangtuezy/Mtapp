@@ -1,7 +1,6 @@
 <?php
 namespace Vht\Src;
 use Illuminate\Support\Facades\Response;
-use Jenssegers\Blade\Blade;
 use Vht\Src\Http\Request;
 class Application{
 
@@ -31,7 +30,7 @@ class Application{
 		// $this->template = new Blade('views','cache');
 	}
 	public function setView($viewFolder,$cache = null){
-		$this->template = new Blade($viewFolder,$cache);
+		$this->template = new \Vht\Src\View\View($viewFolder,$cache);
 	}
 	public function request() : Request{
 		return $this->request;

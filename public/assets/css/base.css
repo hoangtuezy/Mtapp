@@ -78,3 +78,33 @@ body{
 	color: #FFF;
 	font-size: 14px;
 }
+.header-title{
+	position: relative;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.h2-title{
+	font-family: futura-bold;
+	font-size: 38px;
+	color: #1b1b1b;
+}
+.header-title .desc{
+	color: #7f7f7f;
+	font-family: futura-book;
+	font-size: 14px;
+}
+
+.product-item{
+	text-align: center;
+}
+.product-item h3 a{
+	font-size: 14px;
+	color: #393939;
+	font-family: futura-bold;
+	text-transform: uppercase;
+}
+.product-item .mota{
+font-size: 14px;
+	color: #393939;
+	
+}

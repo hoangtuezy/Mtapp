@@ -1,14 +1,13 @@
 <?php
 namespace Vht\Src;
 
-use Jenssegers\Blade\Blade;
-
+use Vht\Src\View\View as ViewEngine;
 class View{
     protected $view_folder;
     
     protected $cache;
     
-    protected Blade $view;
+    protected ViewEngine $view;
     public function __construct($viewFolder,$cache = null){
         $this->view_folder = $viewFolder;
         $this->cache = $cache;
@@ -17,7 +16,7 @@ class View{
     
 
     public function setView($viewFolder,$cache = null){
-        $this->view = new Blade($viewFolder,$cache);
+        $this->view = new ViewEngine($viewFolder,$cache);
     }
     
     public function assign($key,$value){
