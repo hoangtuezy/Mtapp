@@ -2,6 +2,7 @@
 namespace Vht\Src;
 use Illuminate\Support\Facades\Response;
 use Vht\Src\Http\Request;
+use \Vht\Src\View\View as View;
 class Application{
 
 	protected $config;
@@ -30,7 +31,7 @@ class Application{
 		// $this->template = new Blade('views','cache');
 	}
 	public function setView($viewFolder,$cache = null){
-		$this->template = new \Vht\Src\View\View($viewFolder,$cache);
+		$this->template = new View($viewFolder,$cache);
 	}
 	public function request() : Request{
 		return $this->request;
