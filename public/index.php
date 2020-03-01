@@ -1,5 +1,6 @@
 <?php
 namespace Vht;
+error_reporting(0);
 include '../vendor/autoload.php';
 include 'config.php';
 $app = new Src\Application();

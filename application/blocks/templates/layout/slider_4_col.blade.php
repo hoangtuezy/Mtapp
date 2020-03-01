@@ -18,22 +18,26 @@ $product_noibat = array(
 ]
 );
 @endphp
-<div id="product_noibat">
+
+<div id="quytrinh" class="py-5">
 	<div class="container">
 		<div class="header-title">
 			<h2 class="h2-title">
 				<span>
-					SẢN PHẨM NỔI BẬT
+					QUY TRÌNH THỰC HIỆN
 				</span>
 			</h2>
 		</div>
-		<div class="content row">
+<div class="content row">
+	<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
 			@foreach($product_noibat as $item)
-			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-				<div class="product-item">
+			<div class="swiper-slide">
+				<div class="qt_item">
 					<div class="image">
 						<a href="#">
-							<img src="thumb/1-375-268/assets/images/{{ $item["photo"] }}" alt="product">
+							<img src="thumb/1-144-144/assets/images/{{ $item["photo"] }}" alt="product" class="img-fluid rounded-circle">
 						</a>
 					</div>
 					<div class="detail">
@@ -45,6 +49,15 @@ $product_noibat = array(
 				</div>
 			</div>
 			@endforeach
+		</div>
+		<!-- If we need pagination -->
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+	</div>
 		</div>
 	</div>
 </div>

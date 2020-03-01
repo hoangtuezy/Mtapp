@@ -3,6 +3,7 @@
         Options -MultiViews -Indexes
     </IfModule>
     RewriteEngine On
+    RewriteRule ^thumb/([0-9])-([0-9]+)-([0-9]+)/(.*) thumb.php?src=$4&w=$2&h=$3&zc=$1&q=80 [L]
 
     # Handle Authorization Header
     # RewriteCond %{HTTP:Authorization} .
@@ -17,4 +18,5 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
 </IfModule>
