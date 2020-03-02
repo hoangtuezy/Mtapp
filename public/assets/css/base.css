@@ -223,6 +223,9 @@ font-size: 14px;
 }
 .gioithieu_label { font-family: svn-dancing-script; font-size: 30px; color: #333333; }
 .gioithieu_title {/* font-family: "quicksand-bold"; *//* font-size: 32px; *//* color: #e7b00e !important; */}
+#toolbox{
+	margin-bottom: 30px;
+}
 #toolbox h2 {font-size: 38px;color: #1d1d1d;font-family: futura-bold;margin-bottom: 15px;}
 #toolbox .vertical_baiviet_item { margin-bottom: 15px; }
 #toolbox .vertical_baiviet_item .detail { width: calc(100% - 195px); }
@@ -244,3 +247,54 @@ font-size: 14px;
 #toolbox .vertical_tintuc_item .detail.doingu .xemthem a:after { content: unset; }
 #toolbox .vertical_tintuc_item .detail.doingu .xemthem a { display: inline-flex; width: 100px; height: 35px; align-items: center; justify-content: center; border: 1px solid #cca32a; border-radius: 3px; }
 #toolbox .vertical_tintuc_item .detail.doingu .xemthem a:hover { background-color: #cca32a; text-decoration: none; color: #FFF; }
+
+
+#ykien {
+    padding: 45px 0;
+    background: url(../images/bg_khachhang.jpg) top no-repeat;
+    padding-top: 140px;
+    margin-top: -104px;
+    color: #ecebeb;
+    font-family: opensans-regular;
+    z-index: 2;
+    position: relative;
+    /* padding-bottom: 120px; */
+    font-size: 13px;
+}
+
+#ykien .container {
+    width: 900px
+}
+
+#ykien .swiper-container {
+    width: 600px;
+    margin: 20px auto;
+    padding: 15px 0;
+}
+
+#ykien .swiper-slide:not(.swiper-slide-active) .khachhang_item {
+    transform: scale(0.65);
+}
+
+#ykien .swiper-slide.swiper-slide-active .khachhang_item {
+    border: 5px solid #f3f0f0;
+    box-shadow: 0 0 10px 0 #bdbdbd;
+}
+
+#ykien .ykien_content:not(.active) {
+    display: none
+}
+#ykien .ykien_content{
+	font-size: 14px;
+	color: #676767;
+	font-family: futura-book;
+}
+#ykien .content-khachhang {
+    height: 75px
+}
+
+#ykien h3 {
+    font-family: futura-bold;
+    font-size: 18px;
+    color: #333;
+}

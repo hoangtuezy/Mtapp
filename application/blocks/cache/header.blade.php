@@ -5,4 +5,4 @@
 	<img src="assets/images/slider.jpg" alt="" class="img-fluid w-100">
 </div>
 
-<?php /**PATH D:\www\mtapp\application\blocks\templates/layout/header.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\www\dashboard\application\blocks\templates/layout/header.blade.php ENDPATH**/ ?>

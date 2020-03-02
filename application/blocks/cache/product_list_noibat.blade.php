@@ -22,7 +22,7 @@ $product_list_noibat = array(
 );
 ?>
 <div id="product_list_noibat">
-	<?php $__currentLoopData = $product_list_noibat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	<?php foreach($product_list_noibat as $item): ?>
 	<div class="product_list" style="background: url(assets/images/<?php echo e($item["photo"]); ?>); background-size:cover;">
 		<div class="container">
 			<div class="inline-block text-center">
@@ -32,6 +32,6 @@ $product_list_noibat = array(
 			</div>
 		</div>
 	</div>
-	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+	<?php endforeach; ?>
 </div>
-<?php /**PATH D:\www\mtapp\application\blocks\templates/layout/product_list_noibat.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\www\dashboard\application\blocks\templates/layout/product_list_noibat.blade.php ENDPATH**/ ?>

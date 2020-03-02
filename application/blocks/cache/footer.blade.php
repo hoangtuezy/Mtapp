@@ -48,4 +48,4 @@
     </form>
 		</div>
 	</div>
-</div><?php /**PATH D:\www\mtapp\application\blocks\templates/layout/footer.blade.php ENDPATH**/ ?>
+</div><?php /**PATH E:\www\dashboard\application\blocks\templates/layout/footer.blade.php ENDPATH**/ ?>

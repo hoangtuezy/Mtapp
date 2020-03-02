@@ -32,7 +32,7 @@ $product_noibat = array(
 	<div class="swiper-container">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
-			<?php $__currentLoopData = $product_noibat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			<?php foreach($product_noibat as $item): ?>
 			<div class="swiper-slide">
 				<div class="qt_item">
 					<div class="image">
@@ -49,7 +49,7 @@ $product_noibat = array(
 					</div>
 				</div>
 			</div>
-			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			<?php endforeach; ?>
 		</div>
 		<!-- If we need pagination -->
 
@@ -61,4 +61,4 @@ $product_noibat = array(
 	</div>
 		</div>
 	</div>
-</div><?php /**PATH D:\www\mtapp\application\blocks\templates/layout/slider_4_col.blade.php ENDPATH**/ ?>
+</div><?php /**PATH E:\www\dashboard\application\blocks\templates/layout/slider_4_col.blade.php ENDPATH**/ ?>

@@ -28,7 +28,7 @@ $product_noibat = array(
 			</h2>
 		</div>
 		<div class="content row">
-			<?php $__currentLoopData = $product_noibat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			<?php foreach($product_noibat as $item): ?>
 			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
 				<div class="product-item">
 					<div class="image">
@@ -45,7 +45,7 @@ $product_noibat = array(
 					</div>
 				</div>
 			</div>
-			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			<?php endforeach; ?>
 		</div>
 	</div>
-</div><?php /**PATH D:\www\mtapp\application\blocks\templates/layout/product_noibat.blade.php ENDPATH**/ ?>
+</div><?php /**PATH E:\www\dashboard\application\blocks\templates/layout/product_noibat.blade.php ENDPATH**/ ?>
