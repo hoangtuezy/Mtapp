@@ -1,7 +1,11 @@
 <?php
-$this->setView(__DIR__.'/templates',__DIR__.'/cache');
-
-
+error_reporting(E_ALL);
+use Vht\Src\Database as Database;
+$app = $this;
+$database = new Database();
+$database->init($this->config['database']);
+$database->connect();
+var_dump($app);
 if(!isset($request_uri[2])){
 	$com = 'index';
 }else{
