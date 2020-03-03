@@ -3,7 +3,7 @@
 namespace Vht\Src\View;
 
 use Illuminate\Support\ServiceProvider;
-use Vht\Src\View\ViewCompiler as BladeCompiler;
+use Vht\Src\View\ViewCompiler as CustomViewCompiler;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Engines\FileEngine;
@@ -23,7 +23,7 @@ class ViewService extends ServiceProvider
 
         $this->registerViewFinder();
 
-        $this->registerBladeCompiler();
+        $this->registerCustomViewCompiler();
 
         $this->registerEngineResolver();
     }
@@ -86,10 +86,10 @@ class ViewService extends ServiceProvider
      *
      * @return void
      */
-    public function registerBladeCompiler()
+    public function registerCustomViewCompiler()
     {
         $this->app->singleton('blade.compiler', function () {
-            return new BladeCompiler(
+            return new CustomViewCompiler(
                 $this->app['files'], $this->app['config']['view.compiled']
             );
         });

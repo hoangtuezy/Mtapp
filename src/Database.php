@@ -190,7 +190,9 @@ function update($data = array()){
 			echo '<br>'.$value;
 	}
 	function reset(){
-		$this->result->free_result();
+		if(!empty($this->result)){
+			$this->result->free_result();
+		}
 		$this->sql = "";
 		$this->result = "";
 		$this->where = "";

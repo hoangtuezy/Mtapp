@@ -2,10 +2,12 @@
 error_reporting(E_ALL);
 use Vht\Src\Database as Database;
 $app = $this;
-$database = new Database();
-$database->init($this->config['database']);
-$database->connect();
-var_dump($app);
+$db = new Database();
+$db->init($this->config['database']);
+$db->connect();
+$app->setView(__DIR__.'/templates/vovanly_065120/',__DIR__.'/cache/vovanly_065120');
+
+define('_assets','vovanly_065120/');
 if(!isset($request_uri[2])){
 	$com = 'index';
 }else{
@@ -18,10 +20,21 @@ $white_com_list = [
 	'tin-tuc'
 ];
 
+
+$this->template->share('db',$db);
 if($com==='index'){
 	$index_gioithieu = array(
 		'ten_vi' => "Nội Thất Minh Nhật"
 	);
-	echo $this->template->render('index', ['index_gioithieu' => $index_gioithieu]);
+	$db->reset();
+	$db->query("select * from #_setting");
+	$row_setting = $db->result_array();
+
+
+
+	echo $this->template->render('index', [
+		'row_setting' => $row_setting,
+
+	]);
 	die();
 }	

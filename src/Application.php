@@ -32,6 +32,23 @@ class Application{
 	}
 	public function setView($viewFolder,$cache = null){
 		$this->template = new View($viewFolder,$cache);
+		$this->template->directive('css', function ($expression) {
+			$filedata = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $expression);
+			$filedata = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $filedata);
+			$filedata = str_replace('{ ', '{', $filedata);
+			$filedata = str_replace(' }', '}', $filedata);
+			$filedata = str_replace('; ', ';', $filedata);
+			$filedata = str_replace(', ', ',', $filedata);
+			$filedata = str_replace(' {', '{', $filedata);
+			$filedata = str_replace('} ', '}', $filedata);
+			$filedata = str_replace(': ', ':', $filedata);
+			$filedata = str_replace(' ,', ',', $filedata);
+			$filedata = str_replace(' ;', ';', $filedata);
+			return $filedata;
+		});
+	}
+	public function template() : View{
+		return $this->template;
 	}
 	public function request() : Request{
 		return $this->request;
@@ -41,7 +58,7 @@ class Application{
 	}
 	
 	public function session() {
-	    return $this->session;
+		return $this->session;
 	}
 	public function init($config){
 		$this->config = $config;
@@ -52,9 +69,9 @@ class Application{
 			'_server'=>$_SERVER]
 		);
 		if(empty(session_id())){
-		    $this->session = array();
+			$this->session = array();
 		}else{
-		    $this->session = $_SESSION;
+			$this->session = $_SESSION;
 		}
 
 	}
@@ -66,6 +83,14 @@ class Application{
 		}
 		
 	}
+
+	public function setup(){
+		foreach($this->app['name'] as $name){
+			$dir = $this->app[$name]['dir'];
+			$basename_dir = basename($dir);
+		}
+	}
+
 	function dump($arr, $exit=1){
 		echo "<pre>";
 		var_dump($arr);
@@ -73,10 +98,10 @@ class Application{
 		if($exit)exit();
 	}
 	public function set_database($data){
-	    if(empty($this->database)){
-	        $this->database = new Database();
-	    }
-	    $this->database->set_database($data);
+		if(empty($this->database)){
+			$this->database = new Database();
+		}
+		$this->database->set_database($data);
 	}
 	public function handle(){
 		if(in_array($this->request->getRequestTarget(), $this->app['name'])){
@@ -88,22 +113,16 @@ class Application{
 		
 		
 		include $this->app[$this->module]['dir']."/index.php";
-		// $this->config = $config;
-		// $this->database = new Database($this->config['database']);
-		// $this->database->query("select * from #_product limit 8");
-		// $result = $this->database->fetch_array();
-		// $this->database->reset();
-		// $this->database->query("select * from #_product limit 8");
-		// $result = $this->database->fetch_array();
-		// var_dump($result);
+
+
 	}
 	
 	public function run($before = [],$after = []){
-	    if(!empty($before)){
-	        foreach ($before as $key => $item){
-	            (new $item())->process($this);
-	        }
-	    }
-	    
+		if(!empty($before)){
+			foreach ($before as $key => $item){
+				(new $item())->process($this);
+			}
+		}
+
 	}
 }

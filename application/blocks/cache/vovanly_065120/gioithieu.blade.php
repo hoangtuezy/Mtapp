@@ -16,4 +16,4 @@
 			<img src="assets/images/gioithieu.jpg" alt="Giới thiệu">
 		</div>
 	</div>
-</div><?php /**PATH E:\www\dashboard\application\blocks\templates/layout/gioithieu.blade.php ENDPATH**/ ?>
+</div><?php /**PATH E:\www\dashboard\application\blocks\templates\vovanly_065120/layout/gioithieu.blade.php ENDPATH**/ ?>

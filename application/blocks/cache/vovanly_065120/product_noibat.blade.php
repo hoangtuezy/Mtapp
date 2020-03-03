@@ -18,26 +18,22 @@ $product_noibat = array(
 ]
 );
 ?>
-
-<div id="quytrinh" class="py-5">
+<div id="product_noibat">
 	<div class="container">
 		<div class="header-title">
 			<h2 class="h2-title">
 				<span>
-					QUY TRÌNH THỰC HIỆN
+					SẢN PHẨM NỔI BẬT
 				</span>
 			</h2>
 		</div>
-<div class="content row">
-	<div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
+		<div class="content row">
 			<?php foreach($product_noibat as $item): ?>
-			<div class="swiper-slide">
-				<div class="qt_item">
+			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+				<div class="product-item">
 					<div class="image">
 						<a href="#">
-							<img src="thumb/1-144-144/assets/images/<?php echo e($item["photo"]); ?>" alt="product" class="img-fluid rounded-circle">
+							<img src="thumb/1-375-268/assets/images/<?php echo e($item["photo"]); ?>" alt="product">
 						</a>
 					</div>
 					<div class="detail">
@@ -51,14 +47,5 @@ $product_noibat = array(
 			</div>
 			<?php endforeach; ?>
 		</div>
-		<!-- If we need pagination -->
-
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <!-- If we need scrollbar -->
 	</div>
-		</div>
-	</div>
-</div><?php /**PATH E:\www\dashboard\application\blocks\templates/layout/slider_4_col.blade.php ENDPATH**/ ?>
+</div><?php /**PATH E:\www\dashboard\application\blocks\templates\vovanly_065120/layout/product_noibat.blade.php ENDPATH**/ ?>

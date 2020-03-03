@@ -1,5 +1,7 @@
 <?php
-define('app_dir',__DIR__.'/../application/');
+define("_root",realpath('../').'/');
+define("_public",_root."public/");
+define("_application",_root."application/");
 
 
 

@@ -1,16 +1,21 @@
 <?php
 namespace Vht;
-error_reporting(0);
+error_reporting(E_ALL);
 include '../vendor/autoload.php';
 include 'config.php';
+
 $app = new Src\Application();
+
 $app->init($config);
+
 $app->register(
 	[
-		'/' => app_dir.'index',
-		'blocks' => app_dir.'blocks',
-	    'admin' => app_dir.'admin'
+		'/' => _application.'index',
+		'blocks' => _application.'blocks',
+	    'admin' => _application.'admin'
 	]
 );
+$app->setup();
+
 $app->handle();
 
