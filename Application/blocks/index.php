@@ -1,7 +1,9 @@
 <?php
 error_reporting(E_ALL);
+include __DIR__.'/config.php';
 use Vht\Src\Database as Database;
-$app = $this;
+$this->dump($app);
+
 $db = new Database();
 $db->init($this->config['database']);
 $db->connect();
@@ -34,7 +36,6 @@ if($com==='index'){
 
 	echo $this->template->render('index', [
 		'row_setting' => $row_setting,
-
 	]);
 	die();
 }	

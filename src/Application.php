@@ -32,20 +32,6 @@ class Application{
 	}
 	public function setView($viewFolder,$cache = null){
 		$this->template = new View($viewFolder,$cache);
-		$this->template->directive('css', function ($expression) {
-			$filedata = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $expression);
-			$filedata = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $filedata);
-			$filedata = str_replace('{ ', '{', $filedata);
-			$filedata = str_replace(' }', '}', $filedata);
-			$filedata = str_replace('; ', ';', $filedata);
-			$filedata = str_replace(', ', ',', $filedata);
-			$filedata = str_replace(' {', '{', $filedata);
-			$filedata = str_replace('} ', '}', $filedata);
-			$filedata = str_replace(': ', ':', $filedata);
-			$filedata = str_replace(' ,', ',', $filedata);
-			$filedata = str_replace(' ;', ';', $filedata);
-			return $filedata;
-		});
 	}
 	public function template() : View{
 		return $this->template;
@@ -56,7 +42,9 @@ class Application{
 	public function response() : Response{
 		return $this->response;
 	}
-	
+	public function module() {
+		return $this->module;
+	}
 	public function session() {
 		return $this->session;
 	}
@@ -91,7 +79,7 @@ class Application{
 		}
 	}
 
-	function dump($arr, $exit=1){
+	public function dump($arr, $exit=1){
 		echo "<pre>";
 		var_dump($arr);
 		echo "<pre>";

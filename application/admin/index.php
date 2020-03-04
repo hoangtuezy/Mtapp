@@ -12,7 +12,13 @@ $this->set_database(
 // $this->set_auto_model(true);
 
 $this->run(
-    ['check_login'=> Vht\Application\Admin\Action\Auth::class],
-    []
+    [
+        // 'check_login'=> Vht\Application\Admin\Action\Auth::class,
+        'route'=>Vht\Application\Admin\Action\Route::class
+    ],
+
+
+    [
+    ]
     );
 

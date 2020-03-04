@@ -24,13 +24,13 @@ use Psr\Http\Message\StreamInterface;
  * message and return an instance that contains the changed state.
  */
 class Request implements RequestInterface{
-    public $request_uri = '/';
+    private $request_uri = '/';
 
-    public $request_method = 'GET';
+    private $request_method = 'GET';
 
-    public $query_string = '';
+    private $query_string = '';
 
-    
+    private $with_query_params = [];
     function __construct($svreq){
         foreach($svreq as $key => $item){
             $this->$key = $item;
@@ -100,7 +100,13 @@ class Request implements RequestInterface{
      * @return array
      */
     public function getQueryParams(){
-       
+       $rq = explode('&', $this->query_string);
+       $result = [];
+       foreach($rq as $ss){
+        $_tmp = explode('=', $ss);
+        $result[$_tmp[0]] = $_tmp[1];
+       }
+       return $result;
     }
 
     /**
@@ -126,7 +132,8 @@ class Request implements RequestInterface{
      * @return static
      */
     public function withQueryParams(array $query){
-
+        $this->with_query_params = $query;
+        return $this;
     }
 
     /**

@@ -1,8 +1,11 @@
 <?php
 namespace Vht;
+define("_root",realpath('../').'/');
+define("_public",_root."public/");
+define("_application",_root."application/");
 error_reporting(E_ALL);
 include '../vendor/autoload.php';
-include 'config.php';
+include _public.'config.php';
 
 $app = new Src\Application();
 
