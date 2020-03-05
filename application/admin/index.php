@@ -9,6 +9,7 @@ $this->set_database(
         
     ]
     );
+
 // $this->set_auto_model(true);
 
 $this->run(

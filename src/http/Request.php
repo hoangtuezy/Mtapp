@@ -104,9 +104,9 @@ class Request implements RequestInterface{
        $result = [];
        foreach($rq as $ss){
         $_tmp = explode('=', $ss);
-        $result[$_tmp[0]] = $_tmp[1];
+        $result[$_tmp[0]] = $_tmp[1]??NULL;
        }
-       return $result;
+       return $result??NULL;
     }
 
     /**

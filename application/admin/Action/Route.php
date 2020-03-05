@@ -2,9 +2,9 @@
 namespace Vht\Application\Admin\Action;
 class Route{
 	public function process($app){
-		$request_uri = $app->request()->getQueryParams();
+		$query_string = $app->request()->getQueryParams();
 		$module = $app->module();
 
-		$app->dump($request_uri);
+		$app->dump($query_string);
 	}
 }
