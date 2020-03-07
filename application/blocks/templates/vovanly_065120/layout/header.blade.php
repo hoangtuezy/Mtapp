@@ -14,11 +14,13 @@
 				<img src="http://source.test/upload/hinhanh/{{$row_logo["photo_vi"]}}" alt="logo" />
 			</a>
 		</div>
+		@if (!empty($row_banner))
 		<div id="banner">
 			<a href="">
 				<img src="http://source.test/upload/hinhanh/{{$row_banner["photo_vi"]}}" alt="banner"  class="img-fluid"/>
 			</a>
 		</div>
+		@endif
 	</div>
 </div>
 @include('layout.menu')

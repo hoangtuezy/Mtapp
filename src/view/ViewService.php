@@ -3,7 +3,7 @@
 namespace Vht\Src\View;
 
 use Illuminate\Support\ServiceProvider;
-use Vht\Src\View\ViewCompiler as CustomViewCompiler;
+use Vht\Src\View\CustomComplier as CustomViewCompiler;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Engines\FileEngine;

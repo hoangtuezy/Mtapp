@@ -2,12 +2,11 @@
 error_reporting(E_ALL);
 include __DIR__.'/config.php';
 use Vht\Src\Database as Database;
-$this->dump($app);
 
 $db = new Database();
 $db->init($this->config['database']);
 $db->connect();
-$app->setView(__DIR__.'/templates/vovanly_065120/',__DIR__.'/cache/vovanly_065120');
+$app->setView(__DIR__.'/templates/vovanly_065120/',__DIR__.'/cache/vovanly_065120/');
 
 define('_assets','vovanly_065120/');
 if(!isset($request_uri[2])){

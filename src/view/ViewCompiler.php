@@ -1,10 +1,6 @@
 <?php
 namespace Vht\Src\View;
-use Illuminate\View\Compilers\BladeCompiler;
-/**
- * 
- */
-class ViewCompiler extends BladeCompiler
+class ViewCompiler extends CustomCompiler
 {
 	public function getCompiledPath($path)
     {

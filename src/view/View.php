@@ -10,7 +10,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
 use Vht\Src\View\ViewService;
-use Vht\Src\View\ViewCompiler;
+use Vht\Src\View\CustomComplier as CustomComplier;
 class View implements FactoryContract
 {
     /**
@@ -36,7 +36,7 @@ class View implements FactoryContract
         (new ViewService($this->container))->register();
 
         $this->container->singleton('vht.compiler', function () {
-            return new ViewCompiler(
+            return new CustomComplier(
                 $this->container['files'], $this->container['config']['view.compiled']
             );
         });
@@ -55,7 +55,7 @@ class View implements FactoryContract
         return $this->factory->make($view, $data, $mergeData);
     }
 
-    public function compiler(): ViewCompiler
+    public function compiler(): CustomComplier
     {
         return $this->compiler;
     }
