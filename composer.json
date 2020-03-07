@@ -7,7 +7,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"Vht\\": ""}
+        "psr-4": {"Vht\\": "","App\\": "application"}
     },
     "require": {
         "psr/http-message": "^1.0",

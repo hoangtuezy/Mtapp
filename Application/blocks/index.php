@@ -6,9 +6,20 @@ use Vht\Src\Database as Database;
 $db = new Database();
 $db->init($this->config['database']);
 $db->connect();
-$app->setView(__DIR__.'/templates/vovanly_065120/',__DIR__.'/cache/vovanly_065120/');
 
-define('_assets','vovanly_065120/');
+if(!$config['mode'] !== 'production'){ 
+	if(!is_dir($current_cache)){
+		mkdir($current_cache);
+		chmod($current_cache,01777);
+	} 
+	if(!is_dir($current_template)){
+		mkdir($current_template);
+		chmod($current_template,01777);
+	}
+}
+$app->setView($current_template,$current_cache);
+define('_assets',$config['template']['name'].'/');
+
 if(!isset($request_uri[2])){
 	$com = 'index';
 }else{
@@ -20,9 +31,8 @@ $white_com_list = [
 	'gioi-thieu',
 	'tin-tuc'
 ];
-
-
 $this->template->share('db',$db);
+
 if($com==='index'){
 	$index_gioithieu = array(
 		'ten_vi' => "Nội Thất Minh Nhật"

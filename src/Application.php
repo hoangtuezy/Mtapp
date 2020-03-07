@@ -98,6 +98,7 @@ class Application{
 			$request_uri = explode('/', $this->request->getRequestTarget());
 			$this->module = $request_uri[1];
 		}
+		include _application.'index.php';
 		include $this->app[$this->module]['dir']."/index.php";
 
 
