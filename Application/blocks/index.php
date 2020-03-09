@@ -40,9 +40,6 @@ if($com==='index'){
 	$db->reset();
 	$db->query("select * from #_setting");
 	$row_setting = $db->result_array();
-
-
-
 	echo $this->template->render('index', [
 		'row_setting' => $row_setting,
 	]);
