@@ -149,14 +149,14 @@ function update($data = array()){
 		$this->table = $str;
 	}
 	function setWhere($key, $value=""){
-		if($value!=""){
-			if($this->where == "")
+		if(!empty($value)){
+			if(empty($this->where))
 				$this->where = " where " . $key . " = '" . $value . "'";
 			else
 				$this->where .= " and " . $key . " = '" . $value ."'";
 		}
 		else{
-			if($this->where == "")
+			if(empty($this->where))
 				$this->where = " where " . $key ;
 			else
 				$this->where .= " and " . $key ;
@@ -164,13 +164,13 @@ function update($data = array()){
 	}
 	function setWhereOr($key, $value){
 		if($value!=""){
-			if($this->where == "")
+			if(empty($this->where))
 				$this->where = " where " . $key . " = " . $value;
 			else
 				$this->where .= " or " . $key . " = " . $value;
 		}
 		else{
-			if($this->where == "")
+			if(empty($this->where))
 				$this->where = " where " . $key ;
 			else
 				$this->where .= " or " . $key ;

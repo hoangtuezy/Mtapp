@@ -19,6 +19,5 @@ $app->register(
 	]
 );
 $app->setup();
-
 $app->handle();
 
