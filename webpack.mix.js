@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
 
+
+console.log(__dirname);
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -10,8 +12,17 @@ let mix = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
+let resources = __dirname+"/resources";
 
-mix.js('index.js', 'dist/').sass('resources/sass/app.scss', 'dist/');
+
+let current_template = 'lehuuchung_176420';
+let current_resource = 'resources/blocks/'+current_template;
+mix.sass('resources/mix/bootstrap4.4.1/bootstrap.scss', 'public/'+current_template+'/css/')
+	.sass(current_resource+'/scss/style.scss','public/'+current_template+'/css/')
+	
+;
+mix.setResourceRoot('/');
+mix.copyDirectory(current_resource, 'public/blocks/'+current_template);
 
 // Full API
 // mix.js(src, output);

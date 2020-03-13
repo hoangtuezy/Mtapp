@@ -1,11 +1,9 @@
 <?php
 error_reporting(E_ALL);
 include __DIR__.'/config.php';
-use Vht\Src\Database as Database;
 
-$db = new Database();
-$db->init($this->config['database']);
-$db->connect();
+$d->init($this->config['database']);
+$d->connect();
 
 if(!$config['mode'] !== 'production'){ 
 	if(!is_dir($current_cache)){
@@ -16,9 +14,14 @@ if(!$config['mode'] !== 'production'){
 		mkdir($current_template);
 		chmod($current_template,01777);
 	}
+	if(!is_dir($current_assets)){
+		mkdir($current_assets);
+		chmod($current_assets,01777);
+	}
+
 }
 $app->setView($current_template,$current_cache);
-define('_assets',$config['template']['name'].'/');
+define('_assets',basename(_public.$config['template']['name'].'/'));
 
 if(!isset($request_uri[2])){
 	$com = 'index';
@@ -31,15 +34,16 @@ $white_com_list = [
 	'gioi-thieu',
 	'tin-tuc'
 ];
-$this->template->share('db',$db);
-
+$lang = 'vi';
+$this->template->share('d',$d);
+$this->template->share('lang',$lang);
 if($com==='index'){
 	$index_gioithieu = array(
 		'ten_vi' => "Nội Thất Minh Nhật"
 	);
-	$db->reset();
-	$db->query("select * from #_setting");
-	$row_setting = $db->result_array();
+	$d->reset();
+	$d->query("select * from #_setting");
+	$row_setting = $d->fetch_array();
 	echo $this->template->render('index', [
 		'row_setting' => $row_setting,
 	]);

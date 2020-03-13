@@ -9,7 +9,7 @@ include _public.'config.php';
 
 $app = new Src\Application();
 
-$app->init($config);
+$app->init($config); //load configs
 
 $app->register(
 	[
