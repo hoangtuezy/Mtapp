@@ -11,6 +11,7 @@
 @include('layout.slider')
 @include('layout.product_list')
 @include('layout.gioithieu')
+@include('layout.newsletter')
 @endsection
 
 

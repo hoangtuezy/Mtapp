@@ -22,7 +22,7 @@ mix.sass('resources/mix/bootstrap4.4.1/bootstrap.scss', 'public/'+current_templa
 	
 ;
 mix.setResourceRoot('/');
-mix.copyDirectory(current_resource, 'public/blocks/'+current_template);
+mix.copyDirectory(current_resource, 'public/assets/blocks/'+current_template);
 
 // Full API
 // mix.js(src, output);
