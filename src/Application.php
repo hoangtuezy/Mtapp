@@ -2,7 +2,7 @@
 namespace Vht\Src;
 use Illuminate\Support\Facades\Response;
 use Vht\Src\Http\Request;
-use \Vht\Src\View\View as View;
+use \Vht\Src\View\AbstractView as AbstractView;
 class Application{
 
 	protected $config;
@@ -31,9 +31,9 @@ class Application{
 		// $this->template = new Blade('views','cache');
 	}
 	public function setView($viewFolder,$cache = null){
-		$this->template = new View($viewFolder,$cache);
+		$this->template = new AbstractView($viewFolder,$cache);
 	}
-	public function template() : View{
+	public function template() : AbstractView{
 		return $this->template;
 	}
 	public function request() : Request{
@@ -104,10 +104,17 @@ class Application{
 
 	}
 	
-	public function run($before = [],$after = []){
+	public function run($before = [],$after = [],$calla=null){
 		if(!empty($before)){
 			foreach ($before as $key => $item){
-				(new $item())->process($this);
+				(new $item($this))->process($this);
+			}
+		}
+		if(is_callable($calla))
+			$calla($this);
+		if(!empty($after)){
+			foreach ($after as $key => $item){
+				(new $item($this))->process($this);
 			}
 		}
 

@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL);
 include __DIR__.'/config.php';
-
 $d->init($this->config['database']);
 $d->connect();
 

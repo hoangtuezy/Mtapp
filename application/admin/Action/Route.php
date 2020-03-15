@@ -1,10 +1,10 @@
 <?php
-namespace Vht\Application\Admin\Action;
-class Route{
-	public function process($app){
-		$query_string = $app->request()->getQueryParams();
-		$module = $app->module();
-
-		$app->dump($query_string);
+namespace Application\Admin\Action;
+use Vht\Src\Action as BaseAction;
+class Route extends BaseAction{
+	public function process(){
+		$query_string = $this->app->request()->getQueryParams();
+		$module = $this->app->module();
 	}
 }
+// index/posts/media/photo||$action||$target

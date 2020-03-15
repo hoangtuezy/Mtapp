@@ -1,25 +1,16 @@
 <?php
-
-$this->set_database(
+namespace Application\Admin;
+include _application."admin/config.php";
+$app->set_database(
     [
     'servername'=>'localhost',
     'username'=>'root',
     'password'=>'',
     'database'=>'source'
-        
     ]
     );
 
 // $this->set_auto_model(true);
 
-$this->run(
-    [
-        // 'check_login'=> Vht\Application\Admin\Action\Auth::class,
-        'route'=>Vht\Application\Admin\Action\Route::class
-    ],
-
-
-    [
-    ]
-    );
+$app->run($before_filter,$after_filter,function($app){});
 

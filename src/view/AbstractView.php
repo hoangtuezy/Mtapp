@@ -1,17 +1,18 @@
 <?php
+
 namespace Vht\Src\View;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\Container as ContainerInterface;
 use Illuminate\Contracts\View\Factory as FactoryContract;
-use Illuminate\Contracts\View\View as ViewEngine;
+use Illuminate\Contracts\View\View;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
-use Vht\Src\View\ViewService;
-use Vht\Src\View\CustomComplier as CustomComplier;
-class View implements FactoryContract
+use Vht\Src\View\ViewCustomServiceProvider;
+
+class AbstractView implements FactoryContract
 {
     /**
      * @var Container
@@ -33,16 +34,10 @@ class View implements FactoryContract
         $this->container = $container ?: new Container;
 
         $this->setupContainer((array) $viewPaths, $cachePath);
-        (new ViewService($this->container))->register();
-
-        $this->container->singleton('vht.compiler', function () {
-            return new CustomComplier(
-                $this->container['files'], $this->container['config']['view.compiled']
-            );
-        });
+        (new ViewCustomServiceProvider($this->container))->register();
 
         $this->factory = $this->container->get('view');
-        $this->compiler = $this->container->get('vht.compiler');
+        $this->compiler = $this->container->get('blade.compiler');
     }
 
     public function render(string $view, array $data = [], array $mergeData = []): string
@@ -50,12 +45,12 @@ class View implements FactoryContract
         return $this->make($view, $data, $mergeData)->render();
     }
 
-    public function make($view, $data = [], $mergeData = []): ViewEngine
+    public function make($view, $data = [], $mergeData = []): View
     {
         return $this->factory->make($view, $data, $mergeData);
     }
 
-    public function compiler(): CustomComplier
+    public function compiler(): BladeCompiler
     {
         return $this->compiler;
     }
@@ -70,7 +65,7 @@ class View implements FactoryContract
         return $this->factory->exists($view);
     }
 
-    public function file($path, $data = [], $mergeData = []): ViewEngine
+    public function file($path, $data = [], $mergeData = []): View
     {
         return $this->factory->file($path, $data, $mergeData);
     }
