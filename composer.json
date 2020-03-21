@@ -10,6 +10,7 @@
         "psr-4": {"Vht\\": "","Application\\": "application"}
     },
     "require": {
+         "php": ">=7.1.0",
         "psr/http-message": "^1.0",
          "illuminate/view": "7.1.3"
     }
