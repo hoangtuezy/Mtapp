@@ -9,6 +9,7 @@
     "autoload": {
         "psr-4": {"Vht\\": "","Application\\": "application"}
     },
+    "minimum-stability": "dev",
     "require": {
          "php": ">=7.1.0",
         "psr/http-message": "^1.0",
