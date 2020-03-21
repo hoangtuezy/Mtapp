@@ -1,5 +1,6 @@
 <?php
 namespace Vht;
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 define("_root",realpath('../').'/');
 define("_public",_root."public/");
 define("_application",_root."application/");

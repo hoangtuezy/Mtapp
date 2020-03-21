@@ -24,11 +24,17 @@ class Application{
 	protected $session;
 	
 	protected $model = array();
-	
+	protected $filters = array();
 	protected $view;
 	public function __construct(){
 		$this->app = array();
 		// $this->template = new Blade('views','cache');
+	}
+	public function add_filter($key,$filter){
+		array_push($this->filters, array($key,$filter));
+	}
+	public function filters(){
+		return $this->filters;
 	}
 	public function setView($viewFolder,$cache = null){
 		$this->template = new AbstractView($viewFolder,$cache);
@@ -110,13 +116,8 @@ class Application{
 				(new $item($this))->process($this);
 			}
 		}
-		if(is_callable($calla))
+		if(is_callable($calla)){
 			$calla($this);
-		if(!empty($after)){
-			foreach ($after as $key => $item){
-				(new $item($this))->process($this);
-			}
 		}
-
 	}
 }

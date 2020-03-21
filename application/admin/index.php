@@ -12,5 +12,8 @@ $app->set_database(
 
 // $this->set_auto_model(true);
 
-$app->run($before_filter,$after_filter,function($app){});
+$app->run($filters,function($app){
+
+
+});
 
