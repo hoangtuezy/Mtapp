@@ -73,6 +73,7 @@ class Application{
 	}
 	public function register($apps){
 		foreach($apps as $key => $item){
+			$key = md5($key);
 			$this->app['name'][] = $key;
 			$this->app[$key]['name'] = $key;
 			$this->app[$key]['dir'] = $item;
@@ -100,13 +101,14 @@ class Application{
 		$this->database->set_database($data);
 	}
 	public function handle(){
+		$this->dump($this);
+		
 		if(in_array($this->request->getRequestTarget(), $this->app['name'])){
 			$this->module = $this->request->getRequestTarget();
 		}else{
 			$request_uri = explode('/', $this->request->getRequestTarget());
 			$this->module = $request_uri[1];
 		}
-		$this->dump($this->module);
 		include $this->app[$this->module]['dir']."/index.php";
 
 	}
