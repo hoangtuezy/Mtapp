@@ -24,7 +24,9 @@ class Application{
 	protected $session;
 	
 	protected $model = array();
+
 	protected $filters = array();
+	
 	protected $view;
 	public function __construct(){
 		$this->app = array();
@@ -104,7 +106,9 @@ class Application{
 			$request_uri = explode('/', $this->request->getRequestTarget());
 			$this->module = $request_uri[1];
 		}
+		$this->dump($this->module);
 		include $this->app[$this->module]['dir']."/index.php";
+
 	}
 	
 	public function run($before = [],$after = [],$calla=null){
