@@ -102,7 +102,6 @@ class Application{
 	}
 	public function handle(){
 		$this->dump($this);
-		
 		if(in_array($this->request->getRequestTarget(), $this->app['name'])){
 			$this->module = $this->request->getRequestTarget();
 		}else{
