@@ -1,0 +1,13 @@
+.container{
+	@if $enable-responsive == true{
+		width: 100%;
+		max-width: 1230px;
+	}
+	@else {
+		width: 1230px;
+	}
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}

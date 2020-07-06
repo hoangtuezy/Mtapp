@@ -1,0 +1,81 @@
+$display-map : (
+	'b':'block',
+	'f':'flex',
+	't':'table',
+	'g':'grid'
+	);
+@each $d,$v in $display-map{
+	.d{
+		&#{$d}{
+			display: #{$v}; 
+		}
+		&i-#{$d}{
+			display: inline-#{$v}; 
+		}
+	}
+}
+.fill{
+	flex: 1 1 0;
+}
+.df{
+	&.wrap{
+		flex-wrap: wrap;
+	}
+	&.ai-center{
+		align-items: center;
+	}
+	&.ai-start{
+		align-items: flex-start;
+	}
+	&.ai-end{
+		align-items: flex-end;
+	}	
+	&.jc-center{
+		justify-content: center;
+	}
+	&.jc-start{
+		justify-content: flex-start;
+	}
+	&.jc-end{
+		justify-content: flex-end;
+	}
+	&.jc-between{
+		justify-content: space-between;
+	}
+	&.jc-around,&.jc-evently{
+		justify-content: space-around;
+	}
+	@if $responsive == true{
+		@each $key,$value in $breakpoint{
+			@media (min-width: #{$value}){
+				&.ai-#{$key}-center{
+					align-items: center;
+				}
+				&.ai-#{$key}-start{
+					align-items: flex-start;
+				}
+				&.ai-#{$key}-end{
+					align-items: flex-end;
+				}	
+				&.jc-#{$key}-center{
+					justify-content: center;
+				}
+				&.jc-#{$key}-start{
+					justify-content: flex-start;
+				}
+				&.jc-#{$key}-end{
+					justify-content: flex-end;
+				}
+				&.jc-#{$key}-between{
+					justify-content: space-between;
+				}
+				&.jc-#{$key}-around,&.jc-#{$key}-evently{
+					justify-content: space-around;
+				}
+			}
+		}
+
+	
+
+	}
+}

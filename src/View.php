@@ -11,4 +11,7 @@ class View{
         $this->cache = $cache;
         $this->view = new ViewEngine($viewFolder,$cache);
     }
+    public function getEngine(){
+    	return $this->view;
+    }
 }

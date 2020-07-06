@@ -1,0 +1,18 @@
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+@import "config";
+@import "scss/functions";
+@import "scss/variables";
+@import "scss/mixins/breakpoints";
+@import "scss/mixins/grid-framework";
+@import "scss/mixins/grid";
+
+@import "atomic/grid";
