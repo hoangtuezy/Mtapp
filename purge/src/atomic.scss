@@ -16,3 +16,6 @@ html {
 @import "scss/mixins/grid";
 
 @import "atomic/grid";
+.clearfix {
+  @include clearfix();
+}
