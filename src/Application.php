@@ -4,14 +4,16 @@ namespace Vht\Src;
 use Vht\Src\View\AbstractView as View;
 use Illuminate\Container\Container as Container;
 
-class Application{
-	private Container $app;
-	private View $view;
-	private String $name;
+class Application extends Container{
+	private $name;
 	public function __construct($name = null){
 		$this->name = $name;
 	}
-	public function setView($path,$cache){
-		$this->view = new View($path,$cache);
+	function setView($path,$cache){
+		$this->instance("view",new View($path,$cache));
 	}
+	function getView(){
+		return $this->view;
+	}
+	
 }
