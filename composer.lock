@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51da9c41fb17188ee341408bf5e0b777",
+    "content-hash": "9135bc643fc9d5cfac226d6b0a503b78",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -447,17 +447,59 @@
             "time": "2020-07-21T21:11:59+00:00"
         },
         {
+            "name": "mezon/router",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexdodonov/mezon-router.git",
+                "reference": "369737079fcfc7a731d70dff30facc5a7e66ed1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexdodonov/mezon-router/zipball/369737079fcfc7a731d70dff30facc5a7e66ed1c",
+                "reference": "369737079fcfc7a731d70dff30facc5a7e66ed1c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mezon\\Router\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dodonov Alexey",
+                    "email": "alexey@dodonov.pro",
+                    "homepage": "http://gdzone.ru",
+                    "role": "Founder"
+                }
+            ],
+            "description": "Small and fast routing framework",
+            "homepage": "https://github.com/alexdodonov/mezon-router",
+            "time": "2020-07-15T08:29:31+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "afc1817c6bc9c5c82b4a2b8282461e00af4721e4"
+                "reference": "26d848b076b702926117613c6997e0033fdfa1fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/afc1817c6bc9c5c82b4a2b8282461e00af4721e4",
-                "reference": "afc1817c6bc9c5c82b4a2b8282461e00af4721e4",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/26d848b076b702926117613c6997e0033fdfa1fd",
+                "reference": "26d848b076b702926117613c6997e0033fdfa1fd",
                 "shasum": ""
             },
             "require": {
@@ -523,7 +565,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-07-14T19:37:44+00:00"
+            "time": "2020-07-22T14:09:08+00:00"
         },
         {
             "name": "psr/container",
@@ -1626,7 +1668,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/http-foundation": 20
+        "symfony/http-foundation": 20,
+        "mezon/router": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -18,13 +18,16 @@ $app_manager->register(
         return $db;
     }
 );
-$app_manager->get('index')->setView(__DIR__.DS."views",__DIR__.DS."views/@cache");
+
+$router = new \Mezon\Router\Router();
+$app_manager->register('router',$router);
+// $app_manager->get('index')->setView(__DIR__.DS."views",__DIR__.DS."views/@cache");
 
 // foreach ($app_manager->get("PDO")->query("select * from table_product ") as $row) {
 //     print $row['ten_vi'] . '<br />';
   
 // }
-echo $app_manager->get('index')->view->make('app', ['name' => 'John Doe'])->render();
+// echo $app_manager->get('index')->view->make('app', ['name' => 'John Doe'])->render();
 // $view = new View(__DIR__.DS."views",__DIR__.DS."views/@cache");
 
 // $ioc = new \Illuminate\Container\Container;
@@ -53,4 +56,18 @@ echo $app_manager->get('index')->view->make('app', ['name' => 'John Doe'])->rend
 // $app = new App($ioc);
 
 // $app->setView(__DIR__.DS."views",__DIR__.DS."views/@cache");
-?>
+$request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
+function        sitemap()
+{
+    echo( 'Some fake sitemap' );
+}
+
+
+$router->addRoute( '/sitemap/' , 'sitemap' );
+$router->addRoute( '/index' , function($route , $variables) use ($request){
+	var_dump($variables);
+} , 'GET' );
+$router->setNoProcessorFoundErrorHandler(function(){
+	echo 'haha';
+});
+$router->callRoute($request->getPathInfo());
