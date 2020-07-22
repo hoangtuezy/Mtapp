@@ -1,15 +1,19 @@
 <?php
 namespace Vht\Src;
-class Application{
 
-	protected \Illuminate\Container\Container $container;
-	protected Vht\Src\View\AbstractView $view;
-	public String $name;
-	function __construct(String $name)
-	{
+use Vht\Src\View\AbstractView as View;
+use Illuminate\Container\Container as Container;
+
+class Application extends Container{
+	private $name;
+	public function __construct($name = null){
 		$this->name = $name;
 	}
-	public function getName(){
-		return $this->name;
+	function setView($path,$cache){
+		$this->instance("view",new View($path,$cache));
 	}
+	function getView(){
+		return $this->view;
+	}
+	
 }
