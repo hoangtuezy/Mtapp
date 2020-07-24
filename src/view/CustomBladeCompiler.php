@@ -1,6 +1,6 @@
 <?php
 
-namespace Vht\Src\View;
+namespace Vht\View;
 /**
  * 
  */

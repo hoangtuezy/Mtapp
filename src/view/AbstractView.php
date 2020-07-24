@@ -1,6 +1,6 @@
 <?php
 
-namespace Vht\Src\View;
+namespace Vht\View;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\Container as ContainerInterface;
@@ -10,7 +10,7 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
-use Vht\Src\View\ViewCustomServiceProvider;
+use Vht\View\ViewCustomServiceProvider;
 
 class AbstractView implements FactoryContract
 {

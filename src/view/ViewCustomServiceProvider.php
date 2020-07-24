@@ -1,9 +1,9 @@
 <?php
 
-namespace Vht\Src\View;
+namespace Vht\View;
 use Illuminate\View\ViewServiceProvider;
 
-use Vht\Src\View\CustomBladeCompiler as CustomBladeCompiler;
+use Vht\View\CustomBladeCompiler as CustomBladeCompiler;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Engines\FileEngine;
