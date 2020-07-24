@@ -16,7 +16,5 @@
          "php": ">=7.1.0",
          "psr/http-message": "^1.0",
          "illuminate/view": "^7.21.0",
-         "symfony/http-foundation": "^5.1.2"
-      
     }
 }
