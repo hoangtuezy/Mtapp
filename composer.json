@@ -13,7 +13,7 @@
     },
     "minimum-stability": "dev",
     "require": {
-         "php": ">=7.1.0",
+         "php": ">=7.3.0",
          "psr/http-message": "^1.0",
          "illuminate/view": "^8.20.1"
     }
