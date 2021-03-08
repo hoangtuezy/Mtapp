@@ -12,7 +12,7 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
 use Vht\View\ViewCustomServiceProvider;
 
-class View implements FactoryContract
+class ViewEngine implements FactoryContract
 {
     /**
      * @var Container
