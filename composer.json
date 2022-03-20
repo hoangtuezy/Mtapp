@@ -20,6 +20,13 @@
     "prefer-stable": true,
     "require": {
          "php": ">=7.3.0",
-         "illuminate/view": "^8.83.1"
+         "illuminate/view": "^8.83.1",
+         "illuminate/container": "^8.83.1",
+         "illuminate/support": "^8.83.1",
+         "illuminate/view": "^8.83.1",
+         "illuminate/routing": "^8.83.1",
+         "illuminate/config": "^8.83.1",
+         "illuminate/filesystem": "^8.83.1",
+         "league/flysystem": "^1.1.0"
     }
 }
